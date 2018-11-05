@@ -84,11 +84,10 @@ module.exports = function(config) {
 
     webpack: {
       devtool: 'none',
-      mode: 'production',
       optimization: {
         splitChunks: false,
         runtimeChunk: false,
-        minimize: true
+        minimize: false
       },
       module: {
         rules: [

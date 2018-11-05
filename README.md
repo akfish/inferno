@@ -51,10 +51,12 @@ InfernoJS natively supports the browsers listed below.
 
 ## Migration guides
 
-- [Inferno v4](https://github.com/infernojs/inferno/blob/master/docs/v4-migration.md)
-- [Inferno v6](https://github.com/infernojs/inferno/blob/master/docs/v6-migration.md)
+- [Inferno v4](https://github.com/infernojs/inferno/blob/master/documentation/v4-migration.md)
+- [Inferno v6](https://github.com/infernojs/inferno/blob/master/documentation/v6-migration.md)
 
 ## Benchmarks
+
+Live examples at [https://infernojs.github.io/inferno](https://infernojs.github.io/inferno)
 
 - [UI Bench](https://localvoid.github.io/uibench/)
 - [dbmonster](https://rawgit.com/infernojs/dbmonster-inferno/master/index.html)
@@ -109,7 +111,7 @@ render(
 
 Because performance is an important aspect of this library, we want to show you how to optimize your application even further.
 In the example below we optimize diffing process by using JSX **$HasVNodeChildren** to predefine children shape compile time.
-Then we create text vNode using `createTextVNode`. All child flags are documented [here](https://infernojs.org/docs/guides/optimizations). 
+Then we create text vNode using `createTextVNode`. All child flags are documented [here](https://infernojs.org/docs/guides/optimizations).
 
 ```jsx
 import { createTextVNode, render, Component } from 'inferno';

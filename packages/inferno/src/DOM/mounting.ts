@@ -136,7 +136,7 @@ export function mountArrayChildren(children, dom: Element | null, context: Objec
 }
 
 export function mountClassComponent(vNode: VNode, parentDOM: Element | null, context: Object, isSVG: boolean, nextNode: Element | null, lifecycle: Function[]) {
-  const instance = createClassComponentInstance(vNode, vNode.type, vNode.props || EMPTY_OBJ, context, lifecycle);
+  const instance = createClassComponentInstance(vNode, vNode.type, vNode.props || EMPTY_OBJ, context, isSVG, lifecycle);
   mount(instance.$LI, parentDOM, instance.$CX, isSVG, nextNode, lifecycle);
   mountClassComponentCallbacks(vNode.ref, instance, lifecycle);
 }
@@ -175,7 +175,7 @@ export function mountClassComponentCallbacks(ref, instance, lifecycle: Function[
 }
 
 function createOnMountCallback(ref, vNode, props) {
-  return () => ref.onComponentDidMount(findDOMfromVNode(vNode), props);
+  return () => ref.onComponentDidMount(findDOMfromVNode(vNode, true), props);
 }
 
 export function mountFunctionalComponentCallbacks(props, ref, vNode: VNode, lifecycle: Function[]) {

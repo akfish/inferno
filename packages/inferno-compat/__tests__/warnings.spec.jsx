@@ -22,10 +22,14 @@ describe('Warnings', () => {
 
     render(<input type="text" onChange={anotherMethod} onInput={myTest} />, container);
 
-    expect(spy.calls.count()).toBe(1);
-    expect(spy.calls.argsFor(0)).toEqual([
-      `Inferno-compat Warning! 'onInput' handler is reserved to support React like 'onChange' event flow.
+    if (process.env.NODE_ENV === 'production') {
+      expect(spy.calls.count()).toBe(0);
+    } else {
+      expect(spy.calls.count()).toBe(1);
+      expect(spy.calls.argsFor(0)).toEqual([
+        `Inferno-compat Warning! 'onInput' handler is reserved to support React like 'onChange' event flow.
 Original event handler 'function ${myTest.name}' will not be called.`
-    ]);
+      ]);
+    }
   });
 });

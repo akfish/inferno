@@ -47,7 +47,7 @@ export function callAll(arrayFn: Function[]) {
   }
 }
 
-export function findDOMfromVNode(vNode: VNode) {
+export function findDOMfromVNode(vNode: VNode, start: boolean) {
   let flags;
   let children;
 
@@ -61,7 +61,7 @@ export function findDOMfromVNode(vNode: VNode) {
     children = vNode.children;
 
     if (flags & VNodeFlags.Fragment) {
-      vNode = vNode.childFlags === ChildFlags.HasVNodeChildren ? (children as VNode) : (children as VNode[])[0];
+      vNode = vNode.childFlags === ChildFlags.HasVNodeChildren ? (children as VNode) : (children as VNode[])[start ? 0 : children.length - 1];
     } else if (flags & VNodeFlags.ComponentClass) {
       vNode = (children as any).$LI;
     } else {
