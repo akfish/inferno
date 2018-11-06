@@ -1,5 +1,5 @@
 {
-  "name": "inferno",
+  "name": "@heihei/inferno",
   "version": "7.1.2",
   "license": "MIT",
   "description": "An extremely fast, React-like JavaScript library for building modern user interfaces",
