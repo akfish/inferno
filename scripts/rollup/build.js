@@ -1,5 +1,5 @@
 const { mkdir } = require('fs');
-const { join } = require('path');
+const { join, basename } = require('path');
 
 const cwd = process.cwd();
 const pkgJSON = require(join(cwd, 'package.json'));
@@ -21,7 +21,7 @@ mkdir(join(cwd, 'dist'), err => {
       env: 'development',
       ext: '.js',
       format: 'umd',
-      name: pkgJSON.name,
+      name: basename(pkgJSON.name),
       replace: true,
       uglify: true,
       version: pkgJSON.version

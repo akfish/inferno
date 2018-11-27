@@ -2,6 +2,7 @@ const { join } = require('path');
 const { rollup } = require('rollup');
 
 const createPlugins = require('./plugins');
+const applyMock = require('./mock');
 
 const cwd = process.cwd();
 const pkgJSON = require(join(cwd, 'package.json'));
@@ -22,9 +23,9 @@ module.exports = function(options) {
     });
   const plugins = createPlugins(version, options);
 
-  return rollup({
+  return rollup(applyMock(cwd, pkgJSON, options, {
     input: join(cwd, 'src/index.ts'),
     external: external,
     plugins
-  });
+  }));
 };
