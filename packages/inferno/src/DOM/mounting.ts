@@ -82,6 +82,7 @@ export function mountElement(vNode: VNode, parentDOM: Element | null, context: O
   const childFlags = vNode.childFlags;
   isSVG = isSVG || (flags & VNodeFlags.SvgElement) > 0;
   const dom = documentCreateElement(vNode.type, isSVG);
+  (dom as any).$V = vNode;
 
   vNode.dom = dom;
 
@@ -143,9 +144,14 @@ export function mountClassComponent(vNode: VNode, parentDOM: Element | null, con
   const instance = createClassComponentInstance(vNode, vNode.type, vNode.props || EMPTY_OBJ, context, isSVG, lifecycle);
   mount(instance.$LI, parentDOM, instance.$CX, isSVG, nextNode, lifecycle);
   mountClassComponentCallbacks(vNode.ref, instance, lifecycle);
+  if ((context as any).$$isDiff$$) {
+    const nextDom = instance.$LI.dom;
+    nextDom.$ComponentVNode = directClone(vNode);
+  }
 }
 
 export function mountFunctionalComponent(vNode: VNode, parentDOM: Element | null, context: Object, isSVG: boolean, nextNode: Element | null, lifecycle): void {
+  (parentDOM as any).$ComponentVNode = directClone(vNode);
   const type = vNode.type;
   const props = vNode.props || EMPTY_OBJ;
   const ref = vNode.ref;
@@ -154,6 +160,10 @@ export function mountFunctionalComponent(vNode: VNode, parentDOM: Element | null
   vNode.children = input;
   mount(input, parentDOM, context, isSVG, nextNode, lifecycle);
   mountFunctionalComponentCallbacks(props, ref, vNode, lifecycle);
+  if ((context as any).$$isDiff$$) {
+    const nextDom = input.dom;
+    (nextDom as any).$ComponentVNode = directClone(vNode);
+  }
 }
 
 function createClassMountCallback(instance) {

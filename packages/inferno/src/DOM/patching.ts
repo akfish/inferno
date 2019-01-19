@@ -83,6 +83,8 @@ export function patch(
 export function patchSingleTextChild(lastChildren, nextChildren, parentDOM: Element) {
   if (lastChildren !== nextChildren) {
     if (lastChildren !== '') {
+      // tslint:disable-next-line:no-console
+      // console.log(parentDOM.toString());
       (parentDOM.firstChild as Node).nodeValue = nextChildren;
     } else {
       setTextContent(parentDOM, nextChildren);
@@ -370,6 +372,7 @@ export function updateClassComponent(
 ) {
   const lastState = instance.state;
   const lastProps = instance.props;
+  const lastContext = instance.context;
   const usesNewAPI = Boolean(instance.$N);
   const hasSCU = isFunction(instance.shouldComponentUpdate);
 
@@ -394,16 +397,28 @@ export function updateClassComponent(
 
     patch(instance.$LI, nextInput, parentDOM, instance.$CX, isSVG, nextNode, lifecycle);
 
-    // Dont update Last input, until patch has been succesfully executed
-    instance.$LI = nextInput;
+    if (context.$$isDiff$$ && !context.$$isInitialRender$$) {
+      // Restore instance
+      instance.props = lastProps;
+      instance.state = lastState;
+      instance.context = lastContext;
+      // Changed in `renderNewInput`
+      instance.$CX = lastContext;
+      // Do not update last input at all
+    } else {
+      // Dont update Last input, until patch has been succesfully executed
+      instance.$LI = nextInput;
+    }
 
     if (isFunction(instance.componentDidUpdate)) {
       createDidUpdate(instance, lastProps, lastState, snapshot, lifecycle);
     }
   } else {
-    instance.props = nextProps;
-    instance.state = nextState;
-    instance.context = context;
+    if (!context.$$isDiff$$ || context.$$isInitialRender$$) {
+      instance.props = nextProps;
+      instance.state = nextState;
+      instance.context = context;
+    }
   }
 }
 
@@ -753,7 +768,7 @@ function lis_algorithm(arr: Int32Array): Int32Array {
   let v = 0;
   let c = 0;
   const len = arr.length;
-  
+
   if (len > maxLen) {
     maxLen = len;
     result = new Int32Array(len);

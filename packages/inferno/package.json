@@ -40,6 +40,11 @@
     ],
     "moduleName": "Inferno"
   },
+  "mock": {
+    "inject": {
+      "document": "./src/DOM/mocks/document.ts"
+    }
+  },
   "main": "index.js",
   "module": "index.esm.js",
   "dev:module": "dist/index.dev.esm.js",

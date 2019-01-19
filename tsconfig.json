@@ -82,7 +82,7 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "removeComments": false,
-    "experimentalDecorators": false,
+    "experimentalDecorators": true,
     "rootDir": "."
   },
   "include": [

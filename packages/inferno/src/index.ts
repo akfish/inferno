@@ -20,6 +20,12 @@ import { handleComponentInput, createClassComponentInstance } from './DOM/utils/
 import { mount, mountClassComponentCallbacks, mountElement, mountFunctionalComponentCallbacks, mountText } from './DOM/mounting';
 import { createRef, forwardRef, mountRef } from './core/refs';
 
+import { DiffContainer } from './DOM/diff/node'; 
+import mockDocument from './DOM/diff/document';
+
+export * from './DOM/diff/types';
+export * from './DOM/diffing';
+
 if (process.env.NODE_ENV !== 'production') {
   /* tslint:disable-next-line:no-empty */
   const testFunc = function testFn() {};
@@ -70,5 +76,7 @@ export {
   mountRef as _MR,
   mountText as _MT,
   mountProps as _MP,
-  __render
+  __render,
+  DiffContainer,
+  mockDocument
 };

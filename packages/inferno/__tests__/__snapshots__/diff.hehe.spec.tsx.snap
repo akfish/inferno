@@ -1,0 +1,1885 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Diff ClassComponent VNode should be in VPath 1`] = `
+Array [
+  Object {
+    "newValue": "biubiu",
+    "oldValue": "test",
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": "0",
+          "type": [Function],
+        },
+        Object {
+          "className": "bar",
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "p",
+        },
+      ],
+    },
+    "type": "update-text",
+  },
+]
+`;
+
+exports[`Diff FunctionalComponent VNode should be in VPath 1`] = `
+Array [
+  Object {
+    "newValue": "biubiu",
+    "oldValue": "a",
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+        Object {
+          "className": null,
+          "index": 1,
+          "key": "1",
+          "type": [Function],
+        },
+        Object {
+          "className": "bar",
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "p",
+        },
+      ],
+    },
+    "type": "update-text",
+  },
+]
+`;
+
+exports[`Diff Should compute props diff 1`] = `
+Array [
+  Object {
+    "newValue": Object {
+      "target": "_blank",
+    },
+    "oldValue": null,
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "a",
+        },
+      ],
+    },
+    "type": "add-props",
+  },
+  Object {
+    "newValue": Object {
+      "href": "bar",
+    },
+    "oldValue": Object {
+      "href": "foo",
+    },
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "a",
+        },
+      ],
+    },
+    "type": "update-props",
+  },
+  Object {
+    "newValue": null,
+    "oldValue": Object {
+      "title": "test",
+    },
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "a",
+        },
+      ],
+    },
+    "type": "remove-props",
+  },
+]
+`;
+
+exports[`Diff Should compute style diff 1`] = `
+Array [
+  Object {
+    "newValue": Object {
+      "fontFamily": "monospace",
+    },
+    "oldValue": null,
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+      ],
+    },
+    "type": "add-styles",
+  },
+  Object {
+    "newValue": Object {
+      "color": "red",
+      "top": "11px",
+    },
+    "oldValue": Object {
+      "color": "green",
+      "top": "1px",
+    },
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+      ],
+    },
+    "type": "update-styles",
+  },
+  Object {
+    "newValue": null,
+    "oldValue": Object {
+      "position": "absolute",
+    },
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+      ],
+    },
+    "type": "remove-styles",
+  },
+]
+`;
+
+exports[`Diff Should compute text diff 1`] = `
+Array [
+  Object {
+    "newValue": "bar",
+    "oldValue": "foo",
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": "bar",
+          "index": 0,
+          "key": null,
+          "type": "div",
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "p",
+        },
+      ],
+    },
+    "type": "update-text",
+  },
+]
+`;
+
+exports[`Diff Should compute tree diff Append tree 1`] = `
+Array [
+  Object {
+    "before": null,
+    "newValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "c",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "c",
+      "type": "li",
+    },
+    "oldValue": null,
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "insert-tree",
+  },
+]
+`;
+
+exports[`Diff Should compute tree diff Delete tree 1`] = `
+Array [
+  Object {
+    "newValue": null,
+    "oldValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "b",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "b",
+      "type": "li",
+    },
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "remove-tree",
+  },
+]
+`;
+
+exports[`Diff Should compute tree diff Insert tree 1`] = `
+Array [
+  Object {
+    "before": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "c",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "c",
+      "type": "li",
+    },
+    "newValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "b",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "b",
+      "type": "li",
+    },
+    "oldValue": null,
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "insert-tree",
+  },
+]
+`;
+
+exports[`Diff Should compute tree diff Mixed 1`] = `
+Array [
+  Object {
+    "before": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "a",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "a",
+      "type": "li",
+    },
+    "newValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "foo",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "foo",
+      "type": "li",
+    },
+    "oldValue": null,
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "insert-tree",
+  },
+  Object {
+    "before": null,
+    "newValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "d",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "d",
+      "type": "li",
+    },
+    "oldValue": null,
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "insert-tree",
+  },
+  Object {
+    "before": null,
+    "newValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "e",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "e",
+      "type": "li",
+    },
+    "oldValue": null,
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "insert-tree",
+  },
+  Object {
+    "newValue": null,
+    "oldValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "b",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "b",
+      "type": "li",
+    },
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "remove-tree",
+  },
+]
+`;
+
+exports[`Diff Should compute tree diff Move tree 1`] = `
+Array [
+  Object {
+    "before": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "c",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "c",
+      "type": "li",
+    },
+    "newValue": null,
+    "oldValue": Object {
+      "children": Object {
+        "children": Array [
+          Object {
+            "children": "Item: ",
+            "className": null,
+            "key": "$0",
+            "type": "strong",
+          },
+          Object {
+            "children": "b",
+            "className": null,
+            "key": "$1",
+            "type": null,
+          },
+        ],
+        "className": null,
+        "key": null,
+        "type": "p",
+      },
+      "className": null,
+      "key": "b",
+      "type": "li",
+    },
+    "path": VPath {
+      "path": Array [
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": [Function],
+        },
+        Object {
+          "className": null,
+          "index": 0,
+          "key": null,
+          "type": "ul",
+        },
+      ],
+    },
+    "type": "move-tree",
+  },
+]
+`;
+
+exports[`Diff Should work multiple times (functional) 1`] = `
+Array [
+  Array [
+    Object {
+      "newValue": "γthis",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "tγhis",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "thγis",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "thiγs",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "thisγ",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "γis",
+      "oldValue": "is",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 1,
+            "key": "1",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "iγs",
+      "oldValue": "is",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 1,
+            "key": "1",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "isγ",
+      "oldValue": "is",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 1,
+            "key": "1",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "γa",
+      "oldValue": "a",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 2,
+            "key": "2",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "aγ",
+      "oldValue": "a",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 2,
+            "key": "2",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "γtest",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "tγest",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "teγst",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "tesγt",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+]
+`;
+
+exports[`Diff Should work multiple times 1`] = `
+Array [
+  Array [
+    Object {
+      "newValue": "γthis",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "tγhis",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "thγis",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "thiγs",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "thisγ",
+      "oldValue": "this",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": "0",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "γis",
+      "oldValue": "is",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 1,
+            "key": "1",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "iγs",
+      "oldValue": "is",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 1,
+            "key": "1",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "isγ",
+      "oldValue": "is",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 1,
+            "key": "1",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "γa",
+      "oldValue": "a",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 2,
+            "key": "2",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "aγ",
+      "oldValue": "a",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 2,
+            "key": "2",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "γtest",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "tγest",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "teγst",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+  Array [
+    Object {
+      "newValue": "tesγt",
+      "oldValue": "test",
+      "path": VPath {
+        "path": Array [
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": [Function],
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 3,
+            "key": "3",
+            "type": [Function],
+          },
+          Object {
+            "className": "bar",
+            "index": 0,
+            "key": null,
+            "type": "div",
+          },
+          Object {
+            "className": null,
+            "index": 0,
+            "key": null,
+            "type": "p",
+          },
+        ],
+      },
+      "type": "update-text",
+    },
+  ],
+]
+`;

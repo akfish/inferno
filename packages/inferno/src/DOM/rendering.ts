@@ -6,6 +6,7 @@ import { mount } from './mounting';
 import { patch } from './patching';
 import { remove } from './unmounting';
 import { callAll, options, EMPTY_OBJ, renderCheck } from './utils/common';
+import { DiffContainer } from './diff/node';
 
 const hasDocumentAvailable: boolean = typeof document !== 'undefined';
 
@@ -31,7 +32,7 @@ if (hasDocumentAvailable) {
 
 export function __render(
   input: VNode | null | InfernoNode | undefined,
-  parentDOM: Element | SVGAElement | ShadowRoot | DocumentFragment | HTMLElement | Node | null,
+  parentDOM: Element | SVGAElement | ShadowRoot | DocumentFragment | HTMLElement | Node | DiffContainer | null,
   callback: Function | null,
   context: any
 ): void {
@@ -46,6 +47,13 @@ export function __render(
   }
   const lifecycle: Function[] = [];
   let rootInput = (parentDOM as any).$V as VNode | null;
+
+  if (parentDOM instanceof DiffContainer) {
+    context = Object.assign({}, context, {
+      $$isDiff$$: true,
+      $$isInitialRender$$: parentDOM.isInitialRender
+    })
+  }
 
   renderCheck.v = true;
 
@@ -85,7 +93,7 @@ export function __render(
 
 export function render(
   input: VNode | null | InfernoNode | undefined,
-  parentDOM: Element | SVGAElement | ShadowRoot | DocumentFragment | HTMLElement | Node | null,
+  parentDOM: Element | SVGAElement | ShadowRoot | DocumentFragment | HTMLElement | Node | DiffContainer | null,
   callback: Function | null = null,
   context: any = EMPTY_OBJ
 ): void {
