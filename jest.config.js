@@ -24,7 +24,7 @@ module.exports = {
     "<rootDir>/packages/*/__tests__/**/*spec.server.@(js|ts)?(x)"
   ],
   testPathIgnorePatterns: [
-    'hehe.spec.tsx',
+    'gamma.spec.tsx',
     "<rootDir>/packages/inferno/__tests__/transition.spec.jsx"
   ],
   transform: {

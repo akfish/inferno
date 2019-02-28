@@ -28,14 +28,14 @@ async function printFileSizes() {
       '(es2015)'.cyan + ' (gzip)'.green,
       'cjs'.cyan + ' (gzip)'.green,
       'cjs prod'.cyan + ' (gzip)'.green,
-      'hehe'.cyan.inverse + ' (gzip)'.green.inverse,
-      'hehe prod'.cyan.inverse + ' (gzip)'.green.inverse
+      'gamma'.cyan.inverse + ' (gzip)'.green.inverse,
+      'gamma prod'.cyan.inverse + ' (gzip)'.green.inverse
     ],
     colWidth: [100, 200, 200, 200, 200]
   });
 
   for (const name of packages.sort()) {
-    const filesToStat = [name + '.js', name + '.min.js', 'index.esm.js', 'index.cjs.js', 'index.cjs.min.js', 'index.hehe.js', 'index.hehe.min.js'];
+    const filesToStat = [name + '.js', name + '.min.js', 'index.esm.js', 'index.cjs.js', 'index.cjs.min.js', 'index.gamma.js', 'index.gamma.min.js'];
     const row = [name];
 
     for (const file of filesToStat) {

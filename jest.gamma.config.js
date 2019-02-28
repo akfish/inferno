@@ -6,10 +6,10 @@ config.testEnvironment = 'node';
 config.collectCoverage = false;
 
 config.testMatch = [
-  '<rootDir>/packages/*/__tests__/**/*hehe.spec.@(js|ts)?(x)',
+  '<rootDir>/packages/*/__tests__/**/*gamma.spec.@(js|ts)?(x)',
 ];
 
-// Don't ignore hehe.spec.tsx
+// Don't ignore gamma.spec.tsx
 config.testPathIgnorePatterns.shift();
 
 config.globals['usingJSDOM'] = false;
