@@ -73,43 +73,43 @@ describe('Diff', () => {
   describe('Should not mutate base VNode after diffing', () => {
     // it.todo('Element');
     it('ClassComponent', () => {
-      const d = diff(Bar, { value: 'test' });
-      const initialBaseInstance = cloneDeep(d.getBaseInstance());
+      const d = diff(Bar).init({ value: 'test' });
+      const initialBaseVNode = cloneDeep(d.getBaseVNode());
       d.compare({ value: 'bar' }).getDiffs();
-      const currentBaseInstance = d.getBaseInstance();
-      expect(currentBaseInstance).toEqual(initialBaseInstance);
+      const currentBaseVNode = d.getBaseVNode();
+      expect(currentBaseVNode).toEqual(initialBaseVNode);
     });
     it('FunctionalComponent', () => {
-      const d = diff(FunctionalBar, { value: 'test' });
-      const initialBaseInstance = cloneDeep(d.getBaseInstance())
+      const d = diff(FunctionalBar).init({ value: 'test' });
+      const initialBaseInstance = cloneDeep(d.getBaseVNode())
       d.compare({ value: 'bar' }).getDiffs();
-      const currentBaseInstance = d.getBaseInstance();
+      const currentBaseInstance = d.getBaseVNode();
       expect(currentBaseInstance).toEqual(initialBaseInstance)
     });
   });
   it('ClassComponent VNode should be in VPath', () => {
     expect(
-      diff(Biu, { src: 'test' })
+      diff(Biu)
+        .init({ src: 'test' })
         .compare({ src: 'biubiu' })
         .getDiffs()
     ).toMatchSnapshot();
   });
   it('FunctionalComponent VNode should be in VPath', () => {
     expect(
-      diff(FunctionalBiu, { src: 'test a b c' })
+      diff(FunctionalBiu)
+        .init({ src: 'test a b c' })
         .compare({ src: 'test biubiu b c' })
         .getDiffs()
     ).toMatchSnapshot();
   });
   it('Should work multiple times', async () => {
     const src = 'this is a test';
-    const d = diff(Biu, { src })
-    // BUG: expect path to be Biu > div > bar$key > div.bar > p
-    //      got Biu > div > div.bar > p (missing child component instance)
+    const d = diff(Biu).init({ src });
     const diffs = src
       .split('')
       .map((_, i) => src.substring(0, i) + 'γ' + src.substring(i))
-      .map(s => d.compare({ src: s }).getDiffs())
+      .map(s => d.compare({ src: s }).getDiffs());
 
     expect(
       diffs
@@ -117,24 +117,21 @@ describe('Diff', () => {
   });
   it('Should work multiple times (functional)', async () => {
     const src = 'this is a test';
-    const d = diff(FunctionalBiu, { src })
-    // BUG: expect path to be Biu > div > bar$key > div.bar > p
-    //      got Biu > div > div.bar > p (missing child component instance)
+    const d = diff(FunctionalBiu).init({ src });
     const diffs = src
       .split('')
       .map((_, i) => src.substring(0, i) + 'γ' + src.substring(i))
-      .map(s => d.compare({ src: s }).getDiffs())
+      .map(s => d.compare({ src: s }).getDiffs());
 
     expect(
       diffs
     ).toMatchSnapshot();
   });
 
-
-
   it('Should compute text diff', () => {
     expect(
-      diff(Bar, { value: 'foo' })
+      diff(Bar)
+        .init({ value: 'foo' })
         .compare({ value: 'bar' })
         .getDiffs()
     ).toMatchSnapshot();
@@ -142,7 +139,8 @@ describe('Diff', () => {
   it('Should compute style diff', () => {
     expect(
       // color: green; position: absolute; top: 1px;
-      diff(StyleDiffComp, { value: 1 })
+      diff(StyleDiffComp)
+        .init({ value: 1 })
         // color: red; font-family: monospace; top: 11px;
         .compare({ value: 11 })
         .getDiffs()
@@ -150,7 +148,8 @@ describe('Diff', () => {
   });
   it('Should compute props diff', () => {
     expect(
-      diff<PropDiffCompProps>(PropDiffComp, { href: 'foo', title: 'test' })
+      diff<PropDiffCompProps>(PropDiffComp)
+        .init({ href: 'foo', title: 'test' })
         .compare({ href: 'bar', target: '_blank' })
         .getDiffs()
     ).toMatchSnapshot();
@@ -159,7 +158,8 @@ describe('Diff', () => {
   describe('Should compute tree diff', () => {
     it('Mixed', () => {
       expect(
-        diff(TreeDiffComp, { items: ['a', 'b', 'c'] })
+        diff(TreeDiffComp)
+          .init({ items: ['a', 'b', 'c'] })
           .compare({ items: ['foo', 'a', 'c', 'd', 'e'] })
           .getDiffs()
       ).toMatchSnapshot();
@@ -167,7 +167,8 @@ describe('Diff', () => {
 
     it('Append tree', () => {
       expect(
-        diff(TreeDiffComp, { items: ['a', 'b'] })
+        diff(TreeDiffComp)
+          .init({ items: ['a', 'b'] })
           .compare({ items: ['a', 'b', 'c'] })
           .getDiffs()
       ).toMatchSnapshot();
@@ -175,7 +176,8 @@ describe('Diff', () => {
 
     it('Insert tree', () => {
       expect(
-        diff(TreeDiffComp, { items: ['a', 'c'] })
+        diff(TreeDiffComp)
+          .init({ items: ['a', 'c'] })
           .compare({ items: ['a', 'b', 'c'] })
           .getDiffs()
       ).toMatchSnapshot();
@@ -183,7 +185,8 @@ describe('Diff', () => {
 
     it('Move tree', () => {
       expect(
-        diff(TreeDiffComp, { items: ['a', 'c', 'b'] })
+        diff(TreeDiffComp)
+          .init({ items: ['a', 'c', 'b'] })
           .compare({ items: ['a', 'b', 'c'] })
           .getDiffs()
       ).toMatchSnapshot();
@@ -191,7 +194,8 @@ describe('Diff', () => {
 
     it('Delete tree', () => {
       expect(
-        diff(TreeDiffComp, { items: ['a', 'b', 'c'] })
+        diff(TreeDiffComp)
+          .init({ items: ['a', 'b', 'c'] })
           .compare({ items: ['a', 'c'] })
           .getDiffs()
       ).toMatchSnapshot();

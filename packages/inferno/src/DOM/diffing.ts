@@ -5,25 +5,44 @@ import { patch } from './patching';
 import { Component } from '../core/component';
 import { createComponentVNode } from '../core/implementation';
 import { VNodeFlags } from 'inferno-vnode-flags';
+import { VDomEdit } from './diff/types';
 
-type ComponentClass<P> = new(props?: P, context?: any) => Component<P>;
+type ComponentClass<P> = new (props?: P, context?: any) => Component<P>;
+
+export interface DiffHandle<P> {
+  init: (baseProps: P) => DiffHandle<P>;
+  compare: (props: P) => DiffHandle<P>;
+  getBaseProps: () => P | null;
+  getBaseVNode: () => VNode | null;
+  getContainer: () => DiffContainer;
+  getDiffs: () => VDomEdit[];
+}
 
 export function diff<P>(
-  Comp: ComponentClass<P> | StatelessComponent<P>,
-  baseProps: P
+  Comp: ComponentClass<P> | StatelessComponent<P>
 ) {
   const container = new DiffContainer();
   // const base = <Comp {...baseProps} />
-  const base = createComponentVNode(VNodeFlags.ComponentUnknown, Comp, baseProps);
-  if (container.isInitialRender) {
-    // Initial render
-    render(base, container);
-  }
+  let base: VNode | null = null;
+  let baseProps: P | null = null;
 
-  visit(container, n => n.$rendered = true);
+  const d: DiffHandle<P> = {
+    init: (props: P) => {
+      if (container.isInitialRender) {
+        baseProps = props;
+        base = createComponentVNode(VNodeFlags.ComponentUnknown, Comp, baseProps);
+        // Initial render
+        render(base, container);
 
-  const d = {
+        visit(container, n => n.$rendered = true);
+      }
+      return d;
+    },
+    // tslint:disable-next-line: object-literal-sort-keys
     compare: (props: P) => {
+      if (!base) {
+        throw new ReferenceError(`Nothing to compare to. Do initial render first.`)
+      }
       const context: Object = {
         $$isDiff$$: true,
         $$isInitialRender$$: false
@@ -36,9 +55,10 @@ export function diff<P>(
       patch(base as VNode, node as VNode, container as unknown as Element, context, false, null, lifecycle);
       return d;
     },
-    getBaseInstance: () => base,
+    getBaseProps: () => baseProps,
+    getBaseVNode: () => base,
     getContainer: () => container,
-    getDiffs: () => container.pollDiffs(),
+    getDiffs: () => container.pollDiffs()
   }
 
   return d;
