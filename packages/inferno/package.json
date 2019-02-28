@@ -42,7 +42,7 @@
   },
   "mock": {
     "inject": {
-      "document": "./src/DOM/mocks/document.ts"
+      "document": "./src/DOM/diff/document.ts"
     }
   },
   "main": "index.js",
