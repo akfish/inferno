@@ -1,6 +1,6 @@
 // tslint:disable:no-console object-literal-sort-keys
 import { VNode } from '../../../core/types';
-import { compactVNode, UpdateText, EditPayload, AddStyles, RemoveStyles, RemoveProps, AddProps, UpdateStyles, UpdateProps, InsertTree, RemoveTree, VDomEdit, Op, MoveTree, VPath } from '../types';
+import { compactVNode, UpdateText, EditPayload, AddStyles, RemoveStyles, RemoveProps, AddProps, UpdateStyles, UpdateProps, InsertTree, RemoveTree, VDomEdit, Op, MoveTree, VPath, ReplaceTree } from '../types';
 
 function makeDiff<D extends VDomEdit>(type: Op, path: VPath, payload: EditPayload<D>): VDomEdit {
   return Object.assign({ type, path }, payload);
@@ -222,6 +222,7 @@ export class ParentNode extends TreeNode {
   protected insertTrees: Array<EditPayload<InsertTree>> | null = null;
   protected removeTrees: Array<EditPayload<RemoveTree>> | null = null;
   protected moveTrees: Array<EditPayload<MoveTree>> | null = null;
+  protected replaceTrees: Array<EditPayload<ReplaceTree>> | null = null;
   /**
    * Accumulated tree during diffing
    */
@@ -272,6 +273,17 @@ export class ParentNode extends TreeNode {
     })
   }
 
+  public replaceTree(newTree: VNode, oldTree: VNode) {
+    if (!this.replaceTrees) {
+      this.replaceTrees = [];
+    }
+
+    this.replaceTrees.push({
+      newValue: compactVNode(newTree)!,
+      oldValue: compactVNode(oldTree)!
+    })
+  }
+
   protected buildTreeDiffs(path: VPath): VDomEdit[] {
     const diffs: VDomEdit[] = [];
 
@@ -290,6 +302,11 @@ export class ParentNode extends TreeNode {
     if (this.moveTrees) {
       this.moveTrees.forEach(p => diffs.push(makeDiff('move-tree', path, p)));
       this.moveTrees = null;
+    }
+
+    if (this.replaceTrees) {
+      this.replaceTrees.forEach(p => diffs.push(makeDiff('replace-tree', path, p)));
+      this.replaceTrees = null;
     }
 
     return diffs;
@@ -331,6 +348,19 @@ export class ParentNode extends TreeNode {
       }
     } else {
       throw new RangeError(`Node '${this.toShortString()}' has no child '${child.toShortString()}'`);
+    }
+  }
+  public replaceChild(newChild: TreeNode, lastChild: TreeNode) {
+    // TBD: is it possible to encounter replacing child in pending tree?
+    const index = this.children.indexOf(lastChild);
+    if (index >= 0) {
+      if (this.$rendered) {
+        this.replaceTree(newChild.$V!, lastChild.$V!);
+      } else {
+        this.children[index] = newChild;
+      }
+    } else {
+      throw new RangeError(`Node '${this.toShortString()}' has no child '${lastChild.toShortString()}'`);
     }
   }
   public insertBefore(child: TreeNode, before: TreeNode) {

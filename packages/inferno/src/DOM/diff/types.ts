@@ -12,7 +12,8 @@ export type Op =
   'remove-props' |
   'insert-tree' |
   'move-tree' |
-  'remove-tree';
+  'remove-tree' |
+  'replace-tree' ;
 
 export interface VDomEdit {
   type: Op;
@@ -163,6 +164,20 @@ export function isRemoveTree(e: any): e is RemoveTree {
     && e.path instanceof VPath
     && isCompactVNode(e.oldValue)
     && e.newValue === null;
+}
+
+export interface ReplaceTree extends VDomEdit {
+  type: 'replace-tree';
+  oldValue: CompactVNode;
+  newValue: CompactVNode;
+}
+
+export function isReplaceTree(e: any): e is ReplaceTree {
+  return typeof e === 'object'
+    && e.type === 'remove-tree'
+    && e.path instanceof VPath
+    && isCompactVNode(e.oldValue)
+    && isCompactVNode(e.newValue);
 }
 
 export type EditPayload<E extends VDomEdit> = Pick<E, Exclude<keyof E, 'type' | 'path'>>;
