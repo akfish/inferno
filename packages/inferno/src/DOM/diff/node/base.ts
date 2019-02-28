@@ -195,6 +195,11 @@ export abstract class TreeNode {
   public set $V(v: VNode | null) {
     // log(`Attach VNode to ${this.toShortString()}`);
     this._$V = v;
+    // Deferred $ComponentVNode assignment
+    if (v && (v as any).$ComponentVNode) {
+      this.$ComponentVNode = (v as any).$ComponentVNode;
+      delete (v as any).$ComponentVNode;
+    }
   }
 
   private _$ComponentVNode: VNode | null;
@@ -238,7 +243,7 @@ export class ParentNode extends TreeNode {
     }
 
     this.insertTrees.push({
-      newValue: compactVNode(tree),
+      newValue: compactVNode(tree)!,
       oldValue: null,
       before: compactVNode(before),
     })
@@ -250,9 +255,9 @@ export class ParentNode extends TreeNode {
     }
 
     this.moveTrees.push({
-      oldValue: compactVNode(tree),
+      oldValue: compactVNode(tree)!,
       newValue: null,
-      before: compactVNode(before)
+      before: compactVNode(before)!
     });
   }
 
@@ -263,7 +268,7 @@ export class ParentNode extends TreeNode {
 
     this.removeTrees.push({
       newValue: null,
-      oldValue: compactVNode(tree)
+      oldValue: compactVNode(tree)!
     })
   }
 

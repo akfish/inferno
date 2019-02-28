@@ -178,13 +178,14 @@ export function isCompactVNode(n: any): n is CompactVNode {
  * Remove references to DOM
  * @param node
  */
-export function compactVNode(node: VNode | null) {
+export function compactVNode(node: VNode | null): CompactVNode | null {
   if (!node) {
     return null;
   }
   // TBD: keep props?
+  // let { children, dom, isValidated, childFlags, flags, props, ref, ...rest } = node;
   // tslint:disable-next-line: prefer-const
-  let { children, dom, isValidated, childFlags, flags, props, ref, ...rest } = node;
+  let { children, className, key, type } = node;
 
   if (typeof children === 'object') {
     if (Array.isArray(children)) {
@@ -194,13 +195,14 @@ export function compactVNode(node: VNode | null) {
     }
   }
 
-  return Object.assign({ children }, rest);
+  return { children, className, key, type };
 }
 
 export function buildVPathNode(node: VNode, index: number = -1): VPathNode {
-  const { flags, dom, children, childFlags, props, ref, isValidated, ...rest } = node;
+  // const { flags, dom, children, childFlags, props, ref, isValidated, ...rest } = node;
+  const { className, key, type } = node;
 
-  return Object.assign({ index }, rest);
+  return { className, key, type, index };
 }
 
 export class VPath {

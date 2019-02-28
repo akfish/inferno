@@ -146,7 +146,14 @@ export function mountClassComponent(vNode: VNode, parentDOM: Element | null, con
   mountClassComponentCallbacks(vNode.ref, instance, lifecycle);
   if ((context as any).$$isDiff$$) {
     const nextDom = instance.$LI.dom;
-    nextDom.$ComponentVNode = directClone(vNode);
+    if (nextDom) {
+      nextDom.$ComponentVNode = directClone(vNode);
+    } else {
+      // nextDom could be null
+      // Deferred $ComponentVNode assignment
+      // When $LI is first attached to a DOM, the $ComponentVNode will be attached as well.
+      instance.$LI.$ComponentVNode = directClone(vNode);
+    }
   }
 }
 
@@ -162,7 +169,14 @@ export function mountFunctionalComponent(vNode: VNode, parentDOM: Element | null
   mountFunctionalComponentCallbacks(props, ref, vNode, lifecycle);
   if ((context as any).$$isDiff$$) {
     const nextDom = input.dom;
-    (nextDom as any).$ComponentVNode = directClone(vNode);
+    if (nextDom) {
+      (nextDom as any).$ComponentVNode = directClone(vNode);
+    } else {
+      // nextDom could be null
+      // Deferred $ComponentVNode assignment
+      // When input is first attached to a DOM, the $ComponentVNode will be attached as well.
+      (input as any).$ComponentVNode = directClone(vNode);
+    }
   }
 }
 
