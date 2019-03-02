@@ -267,6 +267,13 @@ function patchChildren(
   parentVNode: VNode,
   lifecycle: Function[]
 ) {
+// tslint:disable-next-line: no-string-literal
+  if (context['$$isDiff$$'] && !context['$$isInitialRender$$']) {
+    // Diff mode
+    // Do a shallow copy to prevent mutation on lastChildren
+    lastChildren = lastChildren.slice(0);
+  }
+
   switch (lastChildFlags) {
     case ChildFlags.HasVNodeChildren:
       switch (nextChildFlags) {
@@ -373,6 +380,7 @@ export function updateClassComponent(
   const lastState = instance.state;
   const lastProps = instance.props;
   const lastContext = instance.context;
+  const lastInput = instance.$LI;
   const usesNewAPI = Boolean(instance.$N);
   const hasSCU = isFunction(instance.shouldComponentUpdate);
 
@@ -404,7 +412,8 @@ export function updateClassComponent(
       instance.context = lastContext;
       // Changed in `renderNewInput`
       instance.$CX = lastContext;
-      // Do not update last input at all
+      // Restore last input
+      instance.$LI = lastInput;
     } else {
       // Dont update Last input, until patch has been succesfully executed
       instance.$LI = nextInput;

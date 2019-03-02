@@ -123,7 +123,7 @@ export function isRemoveProps(e: any): e is RemoveProps {
 export interface InsertTree extends VDomEdit {
   type: 'insert-tree';
   oldValue: null;
-  newValue: CompactVNode;
+  newValue: CompactVNode | string;
   before: CompactVNode | null;
 }
 
@@ -132,7 +132,7 @@ export function isInsertTree(e: any): e is InsertTree {
     && e.type === 'insert-tree'
     && e.path instanceof VPath
     && e.oldValue === null
-    && isCompactVNode(e.newValue)
+    && (isCompactVNode(e.newValue) || typeof e.newValue === 'string')
     && (e.before === null || isCompactVNode(e.before));
 }
 

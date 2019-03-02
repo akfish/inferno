@@ -1,18 +1,25 @@
 import { Style } from './style';
-import { ParentNode } from './base';
+import { ParentNode } from "./parent";
 import { TextNode } from "./text";
 export class ElementNode extends ParentNode {
   private _textContent: string = "";
   public get textContent() { return this._textContent; }
   public set textContent(value: string) {
+    this._textContent = value;
     // https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#Description
     // > Setting `textContent` on a node removes all of the node's children and replaces them with a single text node with the given string value.
-    // log(`SetText <${this.toShortString()}>${value}</${this.$name}>`)
-    this._textContent = value;
-    // TODO: clear children
-    // this.removeAllChildren();
-    this.appendChild(new TextNode(value));
-    // TODO: fix getter
+    if (this.children.length === 1 && this.children[0] instanceof TextNode) {
+      // Single text child, set text directly
+      (this.children[0] as TextNode).nodeValue = value;
+    } else {
+      // Clean all children first
+      // TBD: emit one single `remove-all-children` diff
+      this.children.forEach(c => this.removeChild(c));
+      // If value is non-empty, create a text node
+      if (value) {
+        this.appendChild(new TextNode(value));
+      }
+    }
   }
   constructor(public tagName: string, public readonly options?: ElementCreationOptions) {
     super(tagName);
