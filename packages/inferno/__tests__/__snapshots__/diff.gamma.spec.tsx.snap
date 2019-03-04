@@ -2,1305 +2,510 @@
 
 exports[`Diff ClassComponent VNode should be in VPath 1`] = `
 Array [
-  Object {
-    "newValue": "biubiu",
-    "oldValue": "test",
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": "0",
-          "type": [Function],
-        },
-        Object {
-          "className": "bar",
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "p",
-        },
-      ],
-    },
-    "type": "update-text",
-  },
+  Diff: update-text
+    path:
+    <Biu $index="0" />
+    <div $index="0" />
+    <Bar key="0" $index="0" />
+    <div className="bar" $index="0" />
+    <p $index="0" />
+    ---
+    oldValue:
+    "test"
+    ---
+    newValue:
+    "biubiu",
 ]
 `;
 
 exports[`Diff FunctionalComponent VNode should be in VPath 1`] = `
 Array [
-  Object {
-    "newValue": "biubiu",
-    "oldValue": "a",
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-        Object {
-          "className": null,
-          "index": 1,
-          "key": "1",
-          "type": [Function],
-        },
-        Object {
-          "className": "bar",
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "p",
-        },
-      ],
-    },
-    "type": "update-text",
-  },
+  Diff: update-text
+    path:
+    <FunctionalBiu $index="0" />
+    <div $index="0" />
+    <FunctionalBar key="1" $index="1" />
+    <div className="bar" $index="0" />
+    <p $index="0" />
+    ---
+    oldValue:
+    "a"
+    ---
+    newValue:
+    "biubiu",
 ]
 `;
 
 exports[`Diff Should compute props diff 1`] = `
 Array [
-  Object {
-    "newValue": Object {
-      "target": "_blank",
-    },
-    "oldValue": null,
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "a",
-        },
-      ],
-    },
-    "type": "add-props",
-  },
-  Object {
-    "newValue": Object {
-      "href": "bar",
-    },
-    "oldValue": Object {
-      "href": "foo",
-    },
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "a",
-        },
-      ],
-    },
-    "type": "update-props",
-  },
-  Object {
-    "newValue": null,
-    "oldValue": Object {
-      "title": "test",
-    },
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "a",
-        },
-      ],
-    },
-    "type": "remove-props",
-  },
+  Diff: add-props
+    path:
+    <PropDiffComp $index="0" />
+    <a $index="0" />
+    ---
+    newValue:
+    Object {
+        "target": "_blank",
+      },
+  Diff: update-props
+    path:
+    <PropDiffComp $index="0" />
+    <a $index="0" />
+    ---
+    oldValue:
+    Object {
+        "href": "foo",
+      }
+    ---
+    newValue:
+    Object {
+        "href": "bar",
+      },
+  Diff: remove-props
+    path:
+    <PropDiffComp $index="0" />
+    <a $index="0" />
+    ---
+    oldValue:
+    Object {
+        "title": "test",
+      },
 ]
 `;
 
 exports[`Diff Should compute style diff 1`] = `
 Array [
-  Object {
-    "newValue": Object {
-      "fontFamily": "monospace",
-    },
-    "oldValue": null,
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-      ],
-    },
-    "type": "add-styles",
-  },
-  Object {
-    "newValue": Object {
-      "color": "red",
-      "top": "11px",
-    },
-    "oldValue": Object {
-      "color": "green",
-      "top": "1px",
-    },
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-      ],
-    },
-    "type": "update-styles",
-  },
-  Object {
-    "newValue": null,
-    "oldValue": Object {
-      "position": "absolute",
-    },
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-      ],
-    },
-    "type": "remove-styles",
-  },
+  Diff: add-styles
+    path:
+    <StyleDiffComp $index="0" />
+    <div $index="0" />
+    ---
+    newValue:
+    Object {
+        "fontFamily": "monospace",
+      },
+  Diff: update-styles
+    path:
+    <StyleDiffComp $index="0" />
+    <div $index="0" />
+    ---
+    oldValue:
+    Object {
+        "color": "green",
+        "top": "1px",
+      }
+    ---
+    newValue:
+    Object {
+        "color": "red",
+        "top": "11px",
+      },
+  Diff: remove-styles
+    path:
+    <StyleDiffComp $index="0" />
+    <div $index="0" />
+    ---
+    oldValue:
+    Object {
+        "position": "absolute",
+      },
 ]
 `;
 
 exports[`Diff Should compute text diff 1`] = `
 Array [
-  Object {
-    "newValue": "bar",
-    "oldValue": "foo",
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": "bar",
-          "index": 0,
-          "key": null,
-          "type": "div",
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "p",
-        },
-      ],
-    },
-    "type": "update-text",
-  },
+  Diff: update-text
+    path:
+    <Bar $index="0" />
+    <div className="bar" $index="0" />
+    <p $index="0" />
+    ---
+    oldValue:
+    "foo"
+    ---
+    newValue:
+    "bar",
 ]
 `;
 
 exports[`Diff Should compute tree diff Append tree 1`] = `
 Array [
-  Object {
-    "before": null,
-    "newValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "c",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "c",
-      "type": "li",
-    },
-    "oldValue": null,
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "insert-tree",
-  },
+  Diff: insert-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    newValue:
+    <li key="c">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "c"
+        </p>
+    </li>,
 ]
 `;
 
 exports[`Diff Should compute tree diff Delete tree 1`] = `
 Array [
-  Object {
-    "newValue": null,
-    "oldValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "b",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "b",
-      "type": "li",
-    },
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "remove-tree",
-  },
+  Diff: remove-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    oldValue:
+    <li key="b">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "b"
+        </p>
+    </li>,
 ]
 `;
 
 exports[`Diff Should compute tree diff Insert tree 1`] = `
 Array [
-  Object {
-    "before": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "c",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "c",
-      "type": "li",
-    },
-    "newValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "b",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "b",
-      "type": "li",
-    },
-    "oldValue": null,
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "insert-tree",
-  },
+  Diff: insert-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    newValue:
+    <li key="b">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "b"
+        </p>
+    </li>
+    ---
+    Before:
+    <li key="c">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "c"
+        </p>
+    </li>,
 ]
 `;
 
 exports[`Diff Should compute tree diff Mixed 1`] = `
 Array [
-  Object {
-    "before": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "a",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "a",
-      "type": "li",
-    },
-    "newValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "foo",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "foo",
-      "type": "li",
-    },
-    "oldValue": null,
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "insert-tree",
-  },
-  Object {
-    "before": null,
-    "newValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "d",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "d",
-      "type": "li",
-    },
-    "oldValue": null,
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "insert-tree",
-  },
-  Object {
-    "before": null,
-    "newValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "e",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "e",
-      "type": "li",
-    },
-    "oldValue": null,
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "insert-tree",
-  },
-  Object {
-    "newValue": null,
-    "oldValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "b",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "b",
-      "type": "li",
-    },
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "remove-tree",
-  },
+  Diff: insert-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    newValue:
+    <li key="foo">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "foo"
+        </p>
+    </li>
+    ---
+    Before:
+    <li key="a">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "a"
+        </p>
+    </li>,
+  Diff: insert-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    newValue:
+    <li key="d">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "d"
+        </p>
+    </li>,
+  Diff: insert-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    newValue:
+    <li key="e">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "e"
+        </p>
+    </li>,
+  Diff: remove-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    oldValue:
+    <li key="b">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "b"
+        </p>
+    </li>,
 ]
 `;
 
 exports[`Diff Should compute tree diff Move tree 1`] = `
 Array [
-  Object {
-    "before": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "c",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "c",
-      "type": "li",
-    },
-    "newValue": null,
-    "oldValue": Object {
-      "children": Object {
-        "children": Array [
-          Object {
-            "children": "Item: ",
-            "className": null,
-            "key": "$0",
-            "type": "strong",
-          },
-          Object {
-            "children": "b",
-            "className": null,
-            "key": "$1",
-            "type": null,
-          },
-        ],
-        "className": null,
-        "key": null,
-        "type": "p",
-      },
-      "className": null,
-      "key": "b",
-      "type": "li",
-    },
-    "path": VPath {
-      "path": Array [
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": [Function],
-        },
-        Object {
-          "className": null,
-          "index": 0,
-          "key": null,
-          "type": "ul",
-        },
-      ],
-    },
-    "type": "move-tree",
-  },
+  Diff: move-tree
+    path:
+    <TreeDiffComp $index="0" />
+    <ul $index="0" />
+    ---
+    oldValue:
+    <li key="b">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "b"
+        </p>
+    </li>
+    ---
+    Before:
+    <li key="c">
+        <p>
+            <strong key="$0">
+                "Item: "
+            </strong>
+            "c"
+        </p>
+    </li>,
 ]
 `;
 
 exports[`Diff Should work multiple times (functional) 1`] = `
 Array [
   Array [
-    Object {
-      "newValue": "γthis",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "γthis",
   ],
   Array [
-    Object {
-      "newValue": "tγhis",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "tγhis",
   ],
   Array [
-    Object {
-      "newValue": "thγis",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thγis",
   ],
   Array [
-    Object {
-      "newValue": "thiγs",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thiγs",
   ],
   Array [
-    Object {
-      "newValue": "thisγ",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thisγ",
   ],
   Array [
-    Object {
-      "newValue": "γis",
-      "oldValue": "is",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 1,
-            "key": "1",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "γis",
   ],
   Array [
-    Object {
-      "newValue": "iγs",
-      "oldValue": "is",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 1,
-            "key": "1",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "iγs",
   ],
   Array [
-    Object {
-      "newValue": "isγ",
-      "oldValue": "is",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 1,
-            "key": "1",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "isγ",
   ],
   Array [
-    Object {
-      "newValue": "γa",
-      "oldValue": "a",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 2,
-            "key": "2",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="2" $index="2" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "a"
+      ---
+      newValue:
+      "γa",
   ],
   Array [
-    Object {
-      "newValue": "aγ",
-      "oldValue": "a",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 2,
-            "key": "2",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="2" $index="2" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "a"
+      ---
+      newValue:
+      "aγ",
   ],
   Array [
-    Object {
-      "newValue": "γtest",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "γtest",
   ],
   Array [
-    Object {
-      "newValue": "tγest",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "tγest",
   ],
   Array [
-    Object {
-      "newValue": "teγst",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "teγst",
   ],
   Array [
-    Object {
-      "newValue": "tesγt",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <FunctionalBiu $index="0" />
+      <div $index="0" />
+      <FunctionalBar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "tesγt",
   ],
 ]
 `;
@@ -1308,578 +513,214 @@ Array [
 exports[`Diff Should work multiple times 1`] = `
 Array [
   Array [
-    Object {
-      "newValue": "γthis",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "γthis",
   ],
   Array [
-    Object {
-      "newValue": "tγhis",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "tγhis",
   ],
   Array [
-    Object {
-      "newValue": "thγis",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thγis",
   ],
   Array [
-    Object {
-      "newValue": "thiγs",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thiγs",
   ],
   Array [
-    Object {
-      "newValue": "thisγ",
-      "oldValue": "this",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": "0",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="0" $index="0" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thisγ",
   ],
   Array [
-    Object {
-      "newValue": "γis",
-      "oldValue": "is",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 1,
-            "key": "1",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "γis",
   ],
   Array [
-    Object {
-      "newValue": "iγs",
-      "oldValue": "is",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 1,
-            "key": "1",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "iγs",
   ],
   Array [
-    Object {
-      "newValue": "isγ",
-      "oldValue": "is",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 1,
-            "key": "1",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "isγ",
   ],
   Array [
-    Object {
-      "newValue": "γa",
-      "oldValue": "a",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 2,
-            "key": "2",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="2" $index="2" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "a"
+      ---
+      newValue:
+      "γa",
   ],
   Array [
-    Object {
-      "newValue": "aγ",
-      "oldValue": "a",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 2,
-            "key": "2",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="2" $index="2" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "a"
+      ---
+      newValue:
+      "aγ",
   ],
   Array [
-    Object {
-      "newValue": "γtest",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "γtest",
   ],
   Array [
-    Object {
-      "newValue": "tγest",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "tγest",
   ],
   Array [
-    Object {
-      "newValue": "teγst",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "teγst",
   ],
   Array [
-    Object {
-      "newValue": "tesγt",
-      "oldValue": "test",
-      "path": VPath {
-        "path": Array [
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": [Function],
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 3,
-            "key": "3",
-            "type": [Function],
-          },
-          Object {
-            "className": "bar",
-            "index": 0,
-            "key": null,
-            "type": "div",
-          },
-          Object {
-            "className": null,
-            "index": 0,
-            "key": null,
-            "type": "p",
-          },
-        ],
-      },
-      "type": "update-text",
-    },
+    Diff: update-text
+      path:
+      <Biu $index="0" />
+      <div $index="0" />
+      <Bar key="3" $index="3" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "tesγt",
   ],
 ]
 `;

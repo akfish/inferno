@@ -15,11 +15,31 @@ export type Op =
   'remove-tree' |
   'replace-tree' ;
 
+const OPS = [
+  'update-text',
+  'add-styles',
+  'update-styles',
+  'remove-styles',
+  'add-props',
+  'update-props',
+  'remove-props',
+  'insert-tree',
+  'move-tree',
+  'remove-tree',
+  'replace-tree' 
+]
+
 export interface VDomEdit {
   type: Op;
   path: VPath;
   oldValue?: any;
   newValue?: any;
+}
+
+export function isVDomEdit(e: any): e is VDomEdit {
+  return e && typeof e === 'object'
+    && OPS.indexOf(e.type) >= 0
+    && e.path instanceof VPath;
 }
 
 export interface UpdateText extends VDomEdit {
@@ -29,7 +49,7 @@ export interface UpdateText extends VDomEdit {
 }
 
 export function isUpdateText(e: any): e is UpdateText {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'update-text'
     && e.path instanceof VPath
     && typeof e.oldValue === 'string'
@@ -43,7 +63,7 @@ export interface AddStyles extends VDomEdit {
 }
 
 export function isAddStyles(e: any): e is AddStyles {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'add-styles'
     && e.path instanceof VPath
     && e.oldValue === null
@@ -57,7 +77,7 @@ export interface UpdateStyles extends VDomEdit {
 }
 
 export function isUpdateStyles(e: any): e is UpdateStyles {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'update-styles'
     && e.path instanceof VPath
     && typeof e.oldValue === 'object'
@@ -71,7 +91,7 @@ export interface RemoveStyles extends VDomEdit {
 }
 
 export function isRemoveStyles(e: any): e is RemoveStyles {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'remove-styles'
     && e.path instanceof VPath
     && typeof e.oldValue === 'object'
@@ -85,7 +105,7 @@ export interface AddProps extends VDomEdit {
 }
 
 export function isAddProps(e: any): e is AddProps {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'add-props'
     && e.path instanceof VPath
     && e.oldValue === null
@@ -99,7 +119,7 @@ export interface UpdateProps extends VDomEdit {
 }
 
 export function isUpdateProps(e: any): e is UpdateProps {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'update-props'
     && e.path instanceof VPath
     && typeof e.oldValue === 'object'
@@ -113,7 +133,7 @@ export interface RemoveProps extends VDomEdit {
 }
 
 export function isRemoveProps(e: any): e is RemoveProps {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'remove-props'
     && e.path instanceof VPath
     && typeof e.oldValue === 'object'
@@ -128,7 +148,7 @@ export interface InsertTree extends VDomEdit {
 }
 
 export function isInsertTree(e: any): e is InsertTree {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'insert-tree'
     && e.path instanceof VPath
     && e.oldValue === null
@@ -138,31 +158,31 @@ export function isInsertTree(e: any): e is InsertTree {
 
 export interface MoveTree extends VDomEdit {
   type: 'move-tree';
-  oldValue: CompactVNode;
+  oldValue: CompactVNode | string;
   newValue: null;
-  before: CompactVNode;
+  before: CompactVNode | string;
 }
 
 export function isMoveTree(e: any): e is MoveTree {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'move-tree'
     && e.path instanceof VPath
-    && isCompactVNode(e.oldValue)
+    && (isCompactVNode(e.oldValue) || typeof e.oldValue === 'string')
     && e.newValue === null
-    && isCompactVNode(e.before);
+    && (isCompactVNode(e.before) || typeof e.before === 'string');
 }
 
 export interface RemoveTree extends VDomEdit {
   type: 'remove-tree';
-  oldValue: CompactVNode;
+  oldValue: CompactVNode | string;
   newValue: null;
 }
 
 export function isRemoveTree(e: any): e is RemoveTree {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'remove-tree'
     && e.path instanceof VPath
-    && isCompactVNode(e.oldValue)
+    && (isCompactVNode(e.oldValue) || typeof e.oldValue === 'string')
     && e.newValue === null;
 }
 
@@ -173,7 +193,7 @@ export interface ReplaceTree extends VDomEdit {
 }
 
 export function isReplaceTree(e: any): e is ReplaceTree {
-  return typeof e === 'object'
+  return e && typeof e === 'object'
     && e.type === 'remove-tree'
     && e.path instanceof VPath
     && isCompactVNode(e.oldValue)
@@ -186,7 +206,9 @@ export type CompactVNode = Pick<VNode, Exclude<keyof VNode, 'flags' | 'childFlag
 
 export function isCompactVNode(n: any): n is CompactVNode {
   // TODO: strict check
-  return typeof n === 'object';
+  return n && typeof n === 'object'
+    && (n.type === null || typeof n.type === 'function' || typeof n.type === 'string')
+    && (n.key === null || typeof n.key === 'string' || typeof n.key === 'number');
 }
 
 /**
@@ -220,11 +242,35 @@ export function buildVPathNode(node: VNode, index: number = -1): VPathNode {
   return { className, key, type, index };
 }
 
+export function formatVNodeTag(node: CompactVNode) {
+  const { type, key, className } = node;
+
+  const typeName: string = typeof type === 'function'
+    ? type.name
+    : type;
+  const metas: string[] = [];
+  if (key) { metas.push(`key="${key}"`) }
+  if (className) { metas.push(`className="${className}"`)}
+  
+  const tag = `${typeName}${metas.length > 0 ? ' ' + metas.join(' ') : ''}`;
+
+  return tag;
+}
+
 export class VPath {
   public static readonly Empty = new VPath();
 
   constructor(public readonly path: VPathNode[] = []) {
 
+  }
+  public format(): string {
+    return this.path.map(p => {
+      const { index } = p;
+
+      const tag = formatVNodeTag(p as unknown as CompactVNode);
+
+      return `<${tag}${index >= 0 ? ` $index="${index}"` : ''} />`
+    }).join('\n')
   }
   /**
    * Append a node into current path.

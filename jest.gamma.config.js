@@ -22,6 +22,11 @@ config.moduleNameMapper = Object.assign({
 
 config.setupFiles.push('<rootDir>/scripts/test/mockDocument.ts');
 
+config.snapshotSerializers = [
+  '<rootDir>/packages/inferno/__tests__/serializers/vnode.ts',
+  '<rootDir>/packages/inferno/__tests__/serializers/diff.ts'
+]
+
 // Override JEST-DEBUG.js. It uses JSDOM to mock document
 config.setupFilesAfterEnv = undefined;
 
