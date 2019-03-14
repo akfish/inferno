@@ -144,7 +144,7 @@ export interface InsertTree extends VDomEdit {
   type: 'insert-tree';
   oldValue: null;
   newValue: CompactVNode | string;
-  before: CompactVNode | null;
+  before: CompactVNode | string | null;
 }
 
 export function isInsertTree(e: any): e is InsertTree {
@@ -153,7 +153,7 @@ export function isInsertTree(e: any): e is InsertTree {
     && e.path instanceof VPath
     && e.oldValue === null
     && (isCompactVNode(e.newValue) || typeof e.newValue === 'string')
-    && (e.before === null || isCompactVNode(e.before));
+    && (e.before === null || typeof e.before === 'string' || isCompactVNode(e.before));
 }
 
 export interface MoveTree extends VDomEdit {

@@ -6,8 +6,11 @@ import { Component } from '../core/component';
 import { createComponentVNode } from '../core/implementation';
 import { VNodeFlags } from 'inferno-vnode-flags';
 import { VDomEdit } from './diff/types';
+// import { renderToString } from 'inferno-server';
 
-type ComponentClass<P> = new (props?: P, context?: any) => Component<P>;
+export type ComponentClass<P> = new (props?: P, context?: any) => Component<P>;
+
+export type ComponentType<P> = ComponentClass<P> | StatelessComponent<P>;
 
 export interface DiffHandle<P> {
   init: (baseProps: P) => DiffHandle<P>;
@@ -19,7 +22,7 @@ export interface DiffHandle<P> {
 }
 
 export function diff<P>(
-  Comp: ComponentClass<P> | StatelessComponent<P>
+  Comp: ComponentType<P>
 ) {
   const container = new DiffContainer();
   // const base = <Comp {...baseProps} />
@@ -51,6 +54,7 @@ export function diff<P>(
 
       // const node = <Comp {...props} />
       const node = createComponentVNode(VNodeFlags.ComponentUnknown, Comp, props);
+      // console.log(renderToString(base) + '\n\n' + renderToString(node));
 
       patch(base as VNode, node as VNode, container as unknown as Element, context, false, null, lifecycle);
       return d;

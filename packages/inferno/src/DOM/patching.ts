@@ -267,8 +267,14 @@ function patchChildren(
   parentVNode: VNode,
   lifecycle: Function[]
 ) {
-// tslint:disable-next-line: no-string-literal
-  if (context['$$isDiff$$'] && !context['$$isInitialRender$$']) {
+  if (
+    lastChildren &&
+    Array.isArray(lastChildren) &&
+    // tslint:disable-next-line: no-string-literal
+    context['$$isDiff$$'] &&
+    // tslint:disable-next-line: no-string-literal
+    !context['$$isInitialRender$$']
+  ) {
     // Diff mode
     // Do a shallow copy to prevent mutation on lastChildren
     lastChildren = lastChildren.slice(0);
