@@ -1,5 +1,5 @@
 {
-  "name": "inferno-shared",
+  "name": "@gamma-vendor/inferno-shared",
   "version": "7.1.2",
   "license": "MIT",
   "description": "Helpers functions for Inferno",

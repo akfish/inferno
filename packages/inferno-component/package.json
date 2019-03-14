@@ -1,5 +1,5 @@
 {
-  "name": "inferno-component",
+  "name": "@gamma-vendor/inferno-component",
   "version": "7.1.2",
   "license": "MIT",
   "description": "Inferno ES6 Component",
@@ -24,6 +24,6 @@
   "typings": "dist/index.d.ts",
   "repository": "https://github.com/infernojs/inferno",
   "dependencies": {
-    "inferno": "7.1.2"
+    "@gamma-vendor/inferno": "7.1.2"
   }
 }

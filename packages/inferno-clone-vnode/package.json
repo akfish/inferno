@@ -1,5 +1,5 @@
 {
-  "name": "inferno-clone-vnode",
+  "name": "@gamma-vendor/inferno-clone-vnode",
   "version": "7.1.2",
   "license": "MIT",
   "description": "provides helper function to clone Inferno's vNodes",
@@ -27,15 +27,15 @@
     "vdom"
   ],
   "dependencies": {
-    "inferno": "7.1.2"
+    "@gamma-vendor/inferno": "7.1.2"
   },
   "devDependencies": {
-    "inferno-shared": "7.1.2",
-    "inferno-vnode-flags": "7.1.2"
+    "@gamma-vendor/inferno-shared": "7.1.2",
+    "@gamma-vendor/inferno-vnode-flags": "7.1.2"
   },
   "rollup": {
     "bundledDependencies": [
-      "inferno-shared"
+      "@gamma-vendor/inferno-shared"
     ],
     "moduleName": "Inferno"
   }

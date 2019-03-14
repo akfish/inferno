@@ -1,5 +1,5 @@
 {
-  "name": "inferno-router",
+  "name": "@gamma-vendor/inferno-router",
   "version": "7.1.2",
   "license": "MIT",
   "description": "Provides routing functionality for Inferno",
@@ -32,16 +32,16 @@
   "dependencies": {
     "history": "^4.7.2",
     "hoist-non-inferno-statics": "^1.1.3",
-    "inferno": "7.1.2",
+    "@gamma-vendor/inferno": "7.1.2",
     "path-to-regexp-es6": "1.7.0"
   },
   "devDependencies": {
-    "inferno-vnode-flags": "7.1.2",
+    "@gamma-vendor/inferno-vnode-flags": "7.1.2",
     "mobx": "*"
   },
   "rollup": {
     "bundledDependencies": [
-      "inferno-shared"
+      "@gamma-vendor/inferno-shared"
     ],
     "moduleName": "Inferno.Router",
     "moduleGlobals": {

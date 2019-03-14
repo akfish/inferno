@@ -1,5 +1,5 @@
 {
-  "name": "inferno-vnode-flags",
+  "name": "@gamma-vendor/inferno-vnode-flags",
   "version": "7.1.2",
   "license": "MIT",
   "description": "Provides an enum of all possible VNode Flags used when calling Inferno.createVNode",

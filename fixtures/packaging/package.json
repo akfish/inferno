@@ -1,5 +1,5 @@
 {
-  "name": "inferno-fixture-packaging",
+  "name": "@gamma-vendor/inferno-fixture-packaging",
   "version": "1.0.0",
   "description": "This folder exists for **React contributors** only.   If you use React you don't need to worry about it.",
   "main": "build-all.js",

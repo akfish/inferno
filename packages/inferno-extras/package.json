@@ -1,5 +1,5 @@
 {
-  "name": "inferno-extras",
+  "name": "@gamma-vendor/inferno-extras",
   "version": "7.1.2",
   "license": "MIT",
   "description": "Collection of utilities for InfernoJS",
@@ -28,9 +28,9 @@
   "typings": "dist/index.d.ts",
   "repository": "https://github.com/infernojs/inferno",
   "dependencies": {
-    "inferno": "7.1.2"
+    "@gamma-vendor/inferno": "7.1.2"
   },
   "devDependencies": {
-    "inferno-vnode-flags": "7.1.2"
+    "@gamma-vendor/inferno-vnode-flags": "7.1.2"
   }
 }

@@ -24,7 +24,12 @@ mkdir(join(cwd, 'dist'), err => {
       name: basename(pkgJSON.name),
       replace: true,
       uglify: true,
-      version: pkgJSON.version
+      version: pkgJSON.version,
+      // Use @gamma-vender/* scope packages
+      paths: {
+        'inferno': '@gamma-vendor/inferno',
+        'inferno-compat': '@gamma-verndoer/compat'
+      }
     }
   });
 

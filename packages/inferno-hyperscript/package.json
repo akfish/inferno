@@ -1,5 +1,5 @@
 {
-  "name": "inferno-hyperscript",
+  "name": "@gamma-vendor/inferno-hyperscript",
   "version": "7.1.2",
   "license": "MIT",
   "description": "Bridging hyperscript to InfernoJS",
@@ -18,16 +18,16 @@
   ],
   "repository": "https://github.com/infernojs/inferno",
   "dependencies": {
-    "inferno": "7.1.2"
+    "@gamma-vendor/inferno": "7.1.2"
   },
   "devDependencies": {
-    "inferno-shared": "7.1.2",
-    "inferno-vnode-flags": "7.1.2"
+    "@gamma-vendor/inferno-shared": "7.1.2",
+    "@gamma-vendor/inferno-vnode-flags": "7.1.2"
   },
   "rollup": {
     "bundledDependencies": [
-      "inferno-shared",
-      "inferno-vnode-flags"
+      "@gamma-vendor/inferno-shared",
+      "@gamma-vendor/inferno-vnode-flags"
     ],
     "moduleName": "Inferno",
     "moduleGlobals": {
