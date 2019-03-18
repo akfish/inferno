@@ -1611,9 +1611,9 @@ describe('CommonMark Specs', () => {
       //      4. <a />.text === symbol name
       it('example 159', () => {
         // NOTE:
-            // "[foo]: /url \"title\"",
-            // "x", <- insert-tree
-            // "[foo]",
+        // "[foo]: /url \"title\"",
+        // "x", <- insert-tree
+        // "[foo]",
         expect(
           scanMarkdown(
             "[foo]: /url \"title\"",
@@ -5453,6 +5453,18 @@ describe('CommonMark Specs', () => {
           )
         ).toMatchSnapshot()
       })
+    })
+  })
+
+  describe('Extended', () => {
+    it('table', () => {
+      expect(
+        scanMarkdown(
+          'A | B | C',
+          '--|---|---',
+          '1 | 2 | 3'
+        )
+      ).toMatchSnapshot()
     })
   })
 })
