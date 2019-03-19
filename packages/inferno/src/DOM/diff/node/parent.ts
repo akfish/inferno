@@ -1,5 +1,5 @@
 import { VNode } from '../../../core/types';
-import { compactVNode, CompactVNode, EditPayload, InsertTree, RemoveTree, VDomEdit, MoveTree, VPath, ReplaceTree } from '../types';
+import { compactVNode, CompactVNode, EditPayload, InsertTree, RemoveTree, VDomEdit, MoveTree, VPath, ReplaceTree, EditFlags } from '../types';
 import { TextNode } from './text';
 import { TreeNode, makeDiff } from './base';
 
@@ -181,19 +181,19 @@ export class ParentNode extends TreeNode {
     // this.flushPendingTree();
     this.flushPendingTrees();
     if (this.insertTrees) {
-      this.insertTrees.forEach(p => diffs.push(makeDiff('insert-tree', path, p)));
+      this.insertTrees.forEach(p => diffs.push(makeDiff(EditFlags.InsertTree, path, p)));
       this.insertTrees = null;
     }
     if (this.removeTrees) {
-      this.removeTrees.forEach(p => diffs.push(makeDiff('remove-tree', path, p)));
+      this.removeTrees.forEach(p => diffs.push(makeDiff(EditFlags.RemoveTree, path, p)));
       this.removeTrees = null;
     }
     if (this.moveTrees) {
-      this.moveTrees.forEach(p => diffs.push(makeDiff('move-tree', path, p)));
+      this.moveTrees.forEach(p => diffs.push(makeDiff(EditFlags.MoveTree, path, p)));
       this.moveTrees = null;
     }
     if (this.replaceTrees) {
-      this.replaceTrees.forEach(p => diffs.push(makeDiff('replace-tree', path, p)));
+      this.replaceTrees.forEach(p => diffs.push(makeDiff(EditFlags.ReplaceTree, path, p)));
       this.replaceTrees = null;
     }
     return diffs;

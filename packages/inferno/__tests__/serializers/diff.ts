@@ -1,10 +1,24 @@
-import { isVDomEdit, VDomEdit, isInsertTree, isMoveTree } from 'inferno';
+import { isVDomEdit, VDomEdit, isInsertTree, isMoveTree, EditFlags } from 'inferno';
+
+const FLAG_NAMES = {
+  [EditFlags.UpdateText]: 'update-text',
+  [EditFlags.AddStyles]: 'add-styles',
+  [EditFlags.UpdateStyles]: 'update-styles',
+  [EditFlags.RemoveStyles]: 'remove-styles',
+  [EditFlags.AddProps]: 'add-props',
+  [EditFlags.UpdateProps]: 'update-props',
+  [EditFlags.RemoveProps]: 'remove-props',
+  [EditFlags.InsertTree]: 'insert-tree',
+  [EditFlags.MoveTree]: 'move-tree',
+  [EditFlags.RemoveTree]: 'remove-tree',
+  [EditFlags.ReplaceTree]: 'replace-tree'
+}
 
 export function print(val: VDomEdit, serialize: (o: any) => string, indent: (s: string) => string) {
-  const { type, path, oldValue, newValue } = val;
+  const { flags, path, oldValue, newValue } = val;
 
   const headers = [
-    `Diff: ${type}`,
+    `Diff: ${FLAG_NAMES[flags]}`,
   ];
 
   const lines = [

@@ -1,5 +1,5 @@
 // tslint:disable:no-empty no-console
-import { diff, VDomEdit } from 'inferno';
+import { diff, VDomEdit, EditFlags } from 'inferno';
 import 'colors';
 import { createElement } from 'inferno-compat';
 import { Markdown } from '@gamma-js/language-markdown';
@@ -23,7 +23,7 @@ function buildHighlightMask(diffs: VDomEdit[][]) {
       if (d.length === 0) {
         return '0';
       } else if (d.length === 1) {
-        return MASK[d[0].type] || '?';
+        return MASK[d[0].flags] || '?';
       } else {
         return 'x';
       }
@@ -59,9 +59,9 @@ function scanMarkdown(...source: string[]) {
 }
 
 const MASK = {
-  'update-style': 'S',
-  'update-text': 'T',
-  'update-props': 'P'
+  [EditFlags.UpdateStyles]: 'S',
+  [EditFlags.UpdateText]: 'T',
+  [EditFlags.UpdateProps]: 'P'
 };
 
 const MASK_COLORS = {

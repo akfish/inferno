@@ -1,9 +1,9 @@
 // tslint:disable:no-console object-literal-sort-keys
 import { VNode } from '../../../core/types';
-import { UpdateText, EditPayload, AddStyles, RemoveStyles, RemoveProps, AddProps, UpdateStyles, UpdateProps, VDomEdit, Op, VPath } from '../types';
+import { UpdateText, EditPayload, AddStyles, RemoveStyles, RemoveProps, AddProps, UpdateStyles, UpdateProps, VDomEdit, VPath, EditFlags } from '../types';
 
-export function makeDiff<D extends VDomEdit>(type: Op, path: VPath, payload: EditPayload<D>): VDomEdit {
-  return Object.assign({ type, path }, payload);
+export function makeDiff<D extends VDomEdit>(flags: EditFlags, path: VPath, payload: EditPayload<D>): VDomEdit {
+  return Object.assign({ isVDomEdit: true, flags, path }, payload) as VDomEdit;
 }
 
 // const log = (message: any, ...args: any[]) => console.log(message, ...args);
@@ -124,37 +124,37 @@ export abstract class TreeNode {
     const diffs: VDomEdit[] = [];
 
     if (this.addStyles) {
-      diffs.push(makeDiff('add-styles', path, this.addStyles));
+      diffs.push(makeDiff(EditFlags.AddStyles, path, this.addStyles));
       this.addStyles = null;
     }
 
     if (this.updateStyles) {
-      diffs.push(makeDiff('update-styles', path, this.updateStyles));
+      diffs.push(makeDiff(EditFlags.UpdateStyles, path, this.updateStyles));
       this.updateStyles = null;
     }
 
     if (this.removeStyles) {
-      diffs.push(makeDiff('remove-styles', path, this.removeStyles));
+      diffs.push(makeDiff(EditFlags.RemoveStyles, path, this.removeStyles));
       this.removeStyles = null;
     }
 
     if (this.addProps) {
-      diffs.push(makeDiff('add-props', path, this.addProps));
+      diffs.push(makeDiff(EditFlags.AddProps, path, this.addProps));
       this.addProps = null;
     }
 
     if (this.updateProps) {
-      diffs.push(makeDiff('update-props', path, this.updateProps));
+      diffs.push(makeDiff(EditFlags.UpdateProps, path, this.updateProps));
       this.updateProps = null;
     }
 
     if (this.removeProps) {
-      diffs.push(makeDiff('remove-props', path, this.removeProps));
+      diffs.push(makeDiff(EditFlags.RemoveProps, path, this.removeProps));
       this.removeProps = null;
     }
 
     if (this.updateTexts) {
-      this.updateTexts.forEach(p => diffs.push(makeDiff('update-text', path, p)));
+      this.updateTexts.forEach(p => diffs.push(makeDiff(EditFlags.UpdateText, path, p)));
       this.updateTexts = null;
     }
 
