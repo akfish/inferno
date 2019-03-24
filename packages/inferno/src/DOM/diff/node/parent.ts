@@ -3,13 +3,13 @@ import { compactVNode, CompactVNode, EditPayload, InsertTree, RemoveTree, VDomEd
 import { TextNode } from './text';
 import { TreeNode, makeDiff } from './base';
 
-function getCompactInternalNode(node: TreeNode | null): CompactVNode | string | null {
+function getCompactInternalNode(node: TreeNode | null, index: number): CompactVNode | string | null {
   if (!node) {
     return null;
   }
   return node instanceof TextNode
     ? node.nodeValue
-    : compactVNode(node.$V)!
+    : compactVNode(node.$V, index)!
 }
 
 // class PendingTree {
@@ -143,9 +143,9 @@ export class ParentNode extends TreeNode {
     this.insertTrees.push({
       // TextNode doesn't have $V
       // TBD: insert-text diff?
-      newValue: getCompactInternalNode(tree)!,
+      newValue: getCompactInternalNode(tree, -1)!,
       oldValue: null,
-      before: getCompactInternalNode(before),
+      before: getCompactInternalNode(before, -1),
     });
   }
   public moveTreeNode(tree: TreeNode, before: TreeNode) {
@@ -153,27 +153,27 @@ export class ParentNode extends TreeNode {
       this.moveTrees = [];
     }
     this.moveTrees.push({
-      oldValue: getCompactInternalNode(tree)!,
+      oldValue: getCompactInternalNode(tree, -1)!,
       newValue: null,
-      before: getCompactInternalNode(before)!
+      before: getCompactInternalNode(before, -1)!
     });
   }
-  public removeTreeNode(tree: TreeNode) {
+  public removeTreeNode(tree: TreeNode, index: number) {
     if (!this.removeTrees) {
       this.removeTrees = [];
     }
     this.removeTrees.push({
       newValue: null,
-      oldValue: getCompactInternalNode(tree)!
+      oldValue: getCompactInternalNode(tree, index)!
     });
   }
-  public replaceTree(newTree: VNode, oldTree: VNode) {
+  public replaceTree(newTree: VNode, oldTree: VNode, index: number) {
     if (!this.replaceTrees) {
       this.replaceTrees = [];
     }
     this.replaceTrees.push({
-      newValue: compactVNode(newTree)!,
-      oldValue: compactVNode(oldTree)!
+      newValue: compactVNode(newTree, index)!,
+      oldValue: compactVNode(oldTree, index)!
     });
   }
   protected buildTreeDiffs(path: VPath): VDomEdit[] {
@@ -226,7 +226,7 @@ export class ParentNode extends TreeNode {
     const index = this.children.indexOf(child);
     if (index >= 0) {
       if (this.$rendered) {
-        this.removeTreeNode(child);
+        this.removeTreeNode(child, index);
       }
       else {
         this.children.splice(index, 1);
@@ -241,7 +241,7 @@ export class ParentNode extends TreeNode {
     const index = this.children.indexOf(lastChild);
     if (index >= 0) {
       if (this.$rendered) {
-        this.replaceTree(newChild.$V!, lastChild.$V!);
+        this.replaceTree(newChild.$V!, lastChild.$V!, index);
       }
       else {
         this.children[index] = newChild;

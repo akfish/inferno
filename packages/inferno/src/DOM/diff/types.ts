@@ -169,7 +169,9 @@ export function isReplaceTree(e: any): e is ReplaceTree {
 
 export type EditPayload<E extends VDomEdit> = Pick<E, Exclude<keyof E, 'isVDomEdit' | 'flags' | 'path'>>;
 
-export type CompactVNode = Pick<VNode, Exclude<keyof VNode, 'flags' | 'childFlags' | 'dom' | 'props' | 'ref' | 'isValidated'>>;
+export interface CompactVNode extends Pick<VNode, Exclude<keyof VNode, 'flags' | 'childFlags' | 'dom' | 'props' | 'ref' | 'isValidated'>> {
+  index: number
+}
 
 export function isCompactVNode(n: any): n is CompactVNode {
   // TODO: strict check
@@ -182,7 +184,7 @@ export function isCompactVNode(n: any): n is CompactVNode {
  * Remove references to DOM
  * @param node
  */
-export function compactVNode(node: VNode | null): CompactVNode | null {
+export function compactVNode(node: VNode | null, index: number): CompactVNode | null {
   if (!node) {
     return null;
   }
@@ -195,11 +197,11 @@ export function compactVNode(node: VNode | null): CompactVNode | null {
     if (Array.isArray(children)) {
       children = (children as VNode[]).map(compactVNode);
     } else {
-      children = compactVNode(children as VNode) as any;
+      children = compactVNode(children as VNode, 0) as any;
     }
   }
 
-  return { children, className, key, type };
+  return { children, className, key, type, index };
 }
 
 export function buildVPathNode(node: VNode, index: number = -1): VPathNode {
@@ -210,7 +212,7 @@ export function buildVPathNode(node: VNode, index: number = -1): VPathNode {
 }
 
 export function formatVNodeTag(node: CompactVNode) {
-  const { type, key, className } = node;
+  const { type, key, className, index } = node;
 
   const typeName: string = typeof type === 'function'
     ? type.name
@@ -218,6 +220,7 @@ export function formatVNodeTag(node: CompactVNode) {
   const metas: string[] = [];
   if (key) { metas.push(`key="${key}"`) }
   if (className) { metas.push(`className="${className}"`)}
+  if (index > -1) { metas.push(`$index="${index}"`)}
   
   const tag = `${typeName}${metas.length > 0 ? ' ' + metas.join(' ') : ''}`;
 
@@ -227,16 +230,37 @@ export function formatVNodeTag(node: CompactVNode) {
 export class VPath {
   public static readonly Empty = new VPath();
 
+  public static equals (p1: VPath | null, p2: VPath | null): boolean {
+    // At least one of them is null
+    if (!p1 || !p2) {
+      // True if both are null
+      return p1 === p2
+    }
+
+    // Check depth
+    if (p1.depth !== p2.depth) {
+      return false
+    }
+
+    // Check each nodes
+    for (let i = 0; i < p1.depth; i++) {
+      if (!compareVPathNode(p1.path[i], p2.path[i])) {
+        return false
+      }
+    }
+
+    return true
+  }
+
   constructor(public readonly path: VPathNode[] = []) {
 
   }
+  public get depth() { return this.path.length }
   public format(): string {
     return this.path.map(p => {
-      const { index } = p;
-
       const tag = formatVNodeTag(p as unknown as CompactVNode);
 
-      return `<${tag}${index >= 0 ? ` $index="${index}"` : ''} />`
+      return `<${tag} />`
     }).join('\n')
   }
   /**
@@ -256,5 +280,11 @@ export class VPath {
 }
 
 export interface VPathNode extends Pick<CompactVNode, Exclude<keyof CompactVNode, 'children'>> {
-  index: number
+}
+
+export function compareVPathNode(n1: VPathNode, n2: VPathNode): boolean {
+  return n1.type === n2.type
+    && n1.index === n2.index
+    && n1.className === n2.className
+    && n1.key === n2.key
 }

@@ -8,7 +8,7 @@ export class TextNode extends TreeNode {
   }
   private _nodeValue: string;
   constructor(data: string) {
-    super("$Text");
+    super("$$Text");
     this._nodeValue = data;
     // Object.seal(this);
   }

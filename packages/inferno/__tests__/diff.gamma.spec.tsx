@@ -24,6 +24,22 @@ class Biu extends Component<BiuProps, {}> {
   }
 }
 
+class MixedBiu extends Component<BiuProps, {}> {
+  public render() {
+    return (
+      <div>
+        {this.props.src.split(' ').map((value, key) => {
+          const props = { value, key }
+
+          return key === 1
+            ? <Bar {...props} />
+            : value
+        })}
+      </div>
+    )
+  }
+}
+
 const FunctionalBiu = (props: BiuProps) =>
   <div>
     {props.src.split(' ').map((s, i) => <FunctionalBar key={`${i}`} value={s} />)}
@@ -106,6 +122,18 @@ describe('Diff', () => {
   it('Should work multiple times', async () => {
     const src = 'this is a test';
     const d = diff(Biu).init({ src });
+    const diffs = src
+      .split('')
+      .map((_, i) => src.substring(0, i) + 'γ' + src.substring(i))
+      .map(s => d.compare({ src: s }).getDiffs());
+
+    expect(
+      diffs
+    ).toMatchSnapshot();
+  });
+  it('Should work multiple times (mixed)', async () => {
+    const src = 'this is a test';
+    const d = diff(MixedBiu).init({ src });
     const diffs = src
       .split('')
       .map((_, i) => src.substring(0, i) + 'γ' + src.substring(i))

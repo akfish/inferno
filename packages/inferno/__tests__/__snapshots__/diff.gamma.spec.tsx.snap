@@ -9,6 +9,7 @@ Array [
     <Bar key="0" $index="0" />
     <div className="bar" $index="0" />
     <p $index="0" />
+    <$$Text $index="0" />
     ---
     oldValue:
     "test"
@@ -27,6 +28,7 @@ Array [
     <FunctionalBar key="1" $index="1" />
     <div className="bar" $index="0" />
     <p $index="0" />
+    <$$Text $index="0" />
     ---
     oldValue:
     "a"
@@ -119,6 +121,7 @@ Array [
     <Bar $index="0" />
     <div className="bar" $index="0" />
     <p $index="0" />
+    <$$Text $index="0" />
     ---
     oldValue:
     "foo"
@@ -137,8 +140,8 @@ Array [
     ---
     newValue:
     <li key="c">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "c"
@@ -155,9 +158,9 @@ Array [
     <ul $index="0" />
     ---
     oldValue:
-    <li key="b">
-        <p>
-            <strong key="$0">
+    <li key="b" $index="1">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "b"
@@ -175,8 +178,8 @@ Array [
     ---
     newValue:
     <li key="b">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "b"
@@ -185,8 +188,8 @@ Array [
     ---
     Before:
     <li key="c">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "c"
@@ -204,8 +207,8 @@ Array [
     ---
     newValue:
     <li key="foo">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "foo"
@@ -214,8 +217,8 @@ Array [
     ---
     Before:
     <li key="a">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "a"
@@ -228,8 +231,8 @@ Array [
     ---
     newValue:
     <li key="d">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "d"
@@ -242,8 +245,8 @@ Array [
     ---
     newValue:
     <li key="e">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "e"
@@ -255,9 +258,9 @@ Array [
     <ul $index="0" />
     ---
     oldValue:
-    <li key="b">
-        <p>
-            <strong key="$0">
+    <li key="b" $index="1">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "b"
@@ -275,8 +278,8 @@ Array [
     ---
     oldValue:
     <li key="b">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "b"
@@ -285,8 +288,8 @@ Array [
     ---
     Before:
     <li key="c">
-        <p>
-            <strong key="$0">
+        <p $index="0">
+            <strong key="$0" $index="0">
                 "Item: "
             </strong>
             "c"
@@ -305,6 +308,7 @@ Array [
       <FunctionalBar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -320,6 +324,7 @@ Array [
       <FunctionalBar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -335,6 +340,7 @@ Array [
       <FunctionalBar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -350,6 +356,7 @@ Array [
       <FunctionalBar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -365,6 +372,7 @@ Array [
       <FunctionalBar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -380,6 +388,7 @@ Array [
       <FunctionalBar key="1" $index="1" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "is"
@@ -395,6 +404,7 @@ Array [
       <FunctionalBar key="1" $index="1" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "is"
@@ -410,6 +420,7 @@ Array [
       <FunctionalBar key="1" $index="1" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "is"
@@ -425,6 +436,7 @@ Array [
       <FunctionalBar key="2" $index="2" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "a"
@@ -440,6 +452,7 @@ Array [
       <FunctionalBar key="2" $index="2" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "a"
@@ -455,6 +468,7 @@ Array [
       <FunctionalBar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "test"
@@ -470,6 +484,7 @@ Array [
       <FunctionalBar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "test"
@@ -485,6 +500,7 @@ Array [
       <FunctionalBar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "test"
@@ -500,6 +516,203 @@ Array [
       <FunctionalBar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "tesγt",
+  ],
+]
+`;
+
+exports[`Diff Should work multiple times (mixed) 1`] = `
+Array [
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "γthis",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "tγhis",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thγis",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thiγs",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "this"
+      ---
+      newValue:
+      "thisγ",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <Bar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "γis",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <Bar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "iγs",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <Bar key="1" $index="1" />
+      <div className="bar" $index="0" />
+      <p $index="0" />
+      <$$Text $index="0" />
+      ---
+      oldValue:
+      "is"
+      ---
+      newValue:
+      "isγ",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="2" />
+      ---
+      oldValue:
+      "a"
+      ---
+      newValue:
+      "γa",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="2" />
+      ---
+      oldValue:
+      "a"
+      ---
+      newValue:
+      "aγ",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="3" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "γtest",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="3" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "tγest",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="3" />
+      ---
+      oldValue:
+      "test"
+      ---
+      newValue:
+      "teγst",
+  ],
+  Array [
+    Diff: update-text
+      path:
+      <MixedBiu $index="0" />
+      <div $index="0" />
+      <$$Text $index="3" />
       ---
       oldValue:
       "test"
@@ -520,6 +733,7 @@ Array [
       <Bar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -535,6 +749,7 @@ Array [
       <Bar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -550,6 +765,7 @@ Array [
       <Bar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -565,6 +781,7 @@ Array [
       <Bar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -580,6 +797,7 @@ Array [
       <Bar key="0" $index="0" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "this"
@@ -595,6 +813,7 @@ Array [
       <Bar key="1" $index="1" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "is"
@@ -610,6 +829,7 @@ Array [
       <Bar key="1" $index="1" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "is"
@@ -625,6 +845,7 @@ Array [
       <Bar key="1" $index="1" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "is"
@@ -640,6 +861,7 @@ Array [
       <Bar key="2" $index="2" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "a"
@@ -655,6 +877,7 @@ Array [
       <Bar key="2" $index="2" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "a"
@@ -670,6 +893,7 @@ Array [
       <Bar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "test"
@@ -685,6 +909,7 @@ Array [
       <Bar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "test"
@@ -700,6 +925,7 @@ Array [
       <Bar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "test"
@@ -715,6 +941,7 @@ Array [
       <Bar key="3" $index="3" />
       <div className="bar" $index="0" />
       <p $index="0" />
+      <$$Text $index="0" />
       ---
       oldValue:
       "test"
