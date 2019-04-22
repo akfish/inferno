@@ -1,5 +1,11 @@
 import { CompactVNode, isCompactVNode, formatVNodeTag } from 'inferno';
 
+function stripTextWrapper (v: any) {
+  return isCompactVNode(v) && v.type === '$$Text'
+    ? v.children
+    : v
+}
+
 export function print(val: CompactVNode, serialize: (o: any) => string, indent: (s: string) => string): string {
   const { type, children } = val;
 
@@ -18,9 +24,9 @@ export function print(val: CompactVNode, serialize: (o: any) => string, indent: 
   ];
   if (children) {
     if (Array.isArray(children)) {
-      children.forEach(c => lines.push(indent(serialize(c))));
+      children.forEach(c => lines.push(indent(serialize(stripTextWrapper(c)))));
     } else {
-      lines.push(indent(serialize(children)));
+      lines.push(indent(serialize(stripTextWrapper(children))));
     }
     lines.push(`</${typeName}>`)
   } 

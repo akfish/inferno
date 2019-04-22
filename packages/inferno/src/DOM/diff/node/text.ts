@@ -1,5 +1,6 @@
 import { VDomEdit, VPath } from '../types';
 import { TreeNode } from './base';
+import { VNode } from '../../../core/types';
 
 export class TextNode extends TreeNode {
   public pollDiffs(prevPath: VPath, index: number): VDomEdit[] {
@@ -11,6 +12,19 @@ export class TextNode extends TreeNode {
     super("$$Text");
     this._nodeValue = data;
     // Object.seal(this);
+    this._v = {
+      type: '$$Text',
+      key: null,
+      className: null,
+      children: this._nodeValue
+    }
+  }
+  private _v: any
+  public get $V() {
+    return this._v
+  }
+  public set $V(_value: VNode | null) {
+    throw new Error('Unexpected setting TextNode.$V')
   }
   public get nodeValue() { return this._nodeValue; }
   public set nodeValue(value: string) {
@@ -22,6 +36,7 @@ export class TextNode extends TreeNode {
       }
       else {
         this._nodeValue = value;
+        this._v.children = value;
       }
     }
   }

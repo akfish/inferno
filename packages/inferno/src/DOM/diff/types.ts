@@ -124,8 +124,8 @@ export function isRemoveProps(e: any): e is RemoveProps {
 export interface InsertTree extends VDomEdit {
   // type: 'insert-tree';
   oldValue: null;
-  newValue: CompactVNode | string;
-  before: CompactVNode | string | null;
+  newValue: CompactVNode;
+  before: CompactVNode | null;
 }
 
 export function isInsertTree(e: any): e is InsertTree {

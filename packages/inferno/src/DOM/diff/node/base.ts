@@ -178,14 +178,6 @@ export abstract class TreeNode {
     if (this.$name === '$$Container') {
       return path;
     }
-    // Text node
-    if (this.$name === '$$Text') {
-      return path.append({
-        type: '$$Text',
-        key: null,
-        className: null 
-      } as unknown as VNode, index)
-    }
     // Append component VNode first
     if (this.$ComponentVNode) {
       path = path.append(this.$ComponentVNode, index);

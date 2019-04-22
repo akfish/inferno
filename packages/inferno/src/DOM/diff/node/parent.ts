@@ -1,15 +1,15 @@
 import { VNode } from '../../../core/types';
 import { compactVNode, CompactVNode, EditPayload, InsertTree, RemoveTree, VDomEdit, MoveTree, VPath, ReplaceTree, EditFlags } from '../types';
-import { TextNode } from './text';
 import { TreeNode, makeDiff } from './base';
 
-function getCompactInternalNode(node: TreeNode | null, index: number): CompactVNode | string | null {
+function getCompactInternalNode(node: TreeNode | null, index: number): CompactVNode | null {
   if (!node) {
     return null;
   }
-  return node instanceof TextNode
-    ? node.nodeValue
-    : compactVNode(node.$V, index)!
+  return compactVNode(node.$V, index)
+  // return node instanceof TextNode
+  //   ? node.nodeValue
+  //   : compactVNode(node.$V, index)!
 }
 
 // class PendingTree {
@@ -119,7 +119,7 @@ export class ParentNode extends TreeNode {
       // Push normalized insert-tree
       queueIndices.forEach(i => {
         const before = this.children[i] || null;
-        this.pendingInserts!.get(i)!.forEach(t => this.insertTreeNode(t, before))
+        this.pendingInserts!.get(i)!.forEach(t => this.insertTreeNode(t, before, i))
       })
 
       // Clear
@@ -136,7 +136,7 @@ export class ParentNode extends TreeNode {
   //     this.pendingTree = null;
   //   }
   // }
-  public insertTreeNode(tree: TreeNode, before: TreeNode | null = null) {
+  public insertTreeNode(tree: TreeNode, before: TreeNode | null = null, beforeIndex: number) {
     if (!this.insertTrees) {
       this.insertTrees = [];
     }
@@ -145,17 +145,17 @@ export class ParentNode extends TreeNode {
       // TBD: insert-text diff?
       newValue: getCompactInternalNode(tree, -1)!,
       oldValue: null,
-      before: getCompactInternalNode(before, -1),
+      before: getCompactInternalNode(before, beforeIndex),
     });
   }
-  public moveTreeNode(tree: TreeNode, before: TreeNode) {
+  public moveTreeNode(tree: TreeNode, before: TreeNode, beforeIndex: number) {
     if (!this.moveTrees) {
       this.moveTrees = [];
     }
     this.moveTrees.push({
       oldValue: getCompactInternalNode(tree, -1)!,
       newValue: null,
-      before: getCompactInternalNode(before, -1)!
+      before: getCompactInternalNode(before, beforeIndex)!
     });
   }
   public removeTreeNode(tree: TreeNode, index: number) {
@@ -255,8 +255,10 @@ export class ParentNode extends TreeNode {
     const childExists = this.children.indexOf(child) >= 0;
 
     if (childExists) {
-      console.assert(this.children.indexOf(before) >= 0, 'Moving child before nodes in pending tree!')
-      this.moveTreeNode(child, before);
+      const beforeIndex = this.children.indexOf(before)
+      // BUG: beforeIndex can be -1
+      console.assert(beforeIndex >= 0, 'Moving child before nodes in pending tree!')
+      this.moveTreeNode(child, before, beforeIndex);
     } else {
       this.queueInsertTreeNode(child, before);
     }
